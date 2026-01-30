@@ -1,7 +1,7 @@
 FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y ffmpeg libgstreamer1.0-0 libchromaprint1
-RUN pip install beet "beets[autobpm,chroma,lastgenre,web]"
+RUN apt-get update && apt-get install -y nano ffmpeg libgstreamer1.0-0 libchromaprint1
+RUN pip install "beets[autobpm,chroma,lastgenre,web]"
 
 EXPOSE 8337
 
@@ -12,4 +12,4 @@ HOME="/config"
 # ports and volumes
 EXPOSE 8337
 VOLUME /config
-CMD ["beet"]
+CMD ["beet", "web"]
